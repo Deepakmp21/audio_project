@@ -1,0 +1,21 @@
+
+{% extends 'base2.html' %}
+
+{% block content %}
+    <h1>Audio List</h1>
+    <ul>
+        {% if audio_files %}
+        {% for audio_file in audio_files %}
+            <li>
+                <h3>{{ audio_file.title }}</h3>
+                
+                <a href="{% url 'audio_detail' audio_file.id %}">{{ audio_file.title }}</a>
+                <audio controls>
+                    <source src="{{MEDIA_URL}}{{ audio_file.file.url }}" type="audio/mpeg">
+                </audio>
+                <p>Size: {{ audio_file.size}}MB</p>
+            </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+{% endblock %}

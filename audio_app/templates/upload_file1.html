@@ -1,0 +1,30 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+ <center><h1>Upload File</h1>
+    <form action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Audio Title</td>
+                <td><input type="text" name="tname"></td>
+                <tr>
+                    <td>Upload a audio:</td>
+                    <td><input type="file" name="mname"></td>
+                </tr>
+                
+                <tr>
+                    <td>Upload a image:</td>
+                    <td><input type="file" name="image" id=""></td>
+                </tr>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" value="Upload">Upload</button>
+                </td>
+            </tr>
+        <!-- {{ form.as_p }}
+        <button type="submit">Upload</button> -->
+    </table>
+    </form></center>
+{% endblock %}

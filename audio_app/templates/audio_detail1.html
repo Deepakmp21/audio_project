@@ -1,0 +1,11 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+    <h1>{{ audio_file.title }}</h1>
+    <img src="{{MEDIA_URL}}{{audio_file.Image.url}}" alt="" srcset="" max-width="500" max-height="300">
+    <audio controls>
+        <source src="{{MEDIA_URL}}{{ audio_file.file.url }}" type="audio/mpeg">
+    </audio>
+    <p>Size: {{ audio_file.size}}MB</p>
+    <p>Uploaded on: {{ audio_file.get_file_upload_date }}</p>
+{% endblock %}
